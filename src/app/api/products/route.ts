@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const guard = requireRole(request, [Role.ADMIN, Role.STORE_OWNER, Role.BRAND, Role.DESIGNER]);
+  const guard = await requireRole([Role.ADMIN, Role.STORE_OWNER, Role.BRAND, Role.DESIGNER]);
   if (!guard.ok) return NextResponse.json({ error: guard.error }, { status: guard.status });
 
   const body = await request.json();

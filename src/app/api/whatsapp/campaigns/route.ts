@@ -9,13 +9,13 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
-  const guard = requireRole(request, [Role.ADMIN, Role.STORE_OWNER, Role.BRAND]);
+  const guard = await requireRole([Role.ADMIN, Role.STORE_OWNER, Role.BRAND]);
   if (!guard.ok) return NextResponse.json({ error: guard.error }, { status: guard.status });
 
   const body = await request.json();
   const campaign = await prisma.whatsAppCampaign.create({
     data: {
-      createdById: body.createdById,
+      createdById: guard.userId ?? body.createdById,
       name: body.name,
       templateName: body.templateName,
       payload: body.payload ?? {},

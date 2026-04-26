@@ -1,6 +1,7 @@
 import type { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
+import { compare } from 'bcryptjs';
 import { prisma } from '@/lib/prisma';
 
 export const authOptions: NextAuthOptions = {
@@ -18,9 +19,13 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) return null;
+
         const user = await prisma.user.findUnique({ where: { email: credentials.email } });
-        if (!user) return null;
-        // Password hash verification can be added with bcrypt in the next phase.
+        if (!user?.passwordHash) return null;
+
+        const isPasswordValid = await compare(credentials.password, user.passwordHash);
+        if (!isPasswordValid) return null;
+
         return { id: user.id, email: user.email, name: user.name, role: user.role };
       },
     }),
@@ -32,6 +37,7 @@ export const authOptions: NextAuthOptions = {
     },
     async session({ session, token }) {
       (session.user as Record<string, unknown>).role = token.role;
+      (session.user as Record<string, unknown>).id = token.sub;
       return session;
     },
   },
