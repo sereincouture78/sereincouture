@@ -1,0 +1,3 @@
+-- Initial SQL migration should be generated from prisma/schema.prisma using:
+-- npx prisma migrate dev --name init
+-- This placeholder file documents migration directory structure for CI/CD.
