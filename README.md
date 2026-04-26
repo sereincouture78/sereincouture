@@ -120,7 +120,7 @@ This plan is focused on attracting and converting **store owners, factories, dis
 
 ## 7) Task Checklist (Execution Control)
 
-Use this list to ensure all tasks are completed properly:
+Use this list to verify work from different contributors and close gaps before launch:
 
 ### Strategy and setup
 - [ ] Finalize ICP and segment priority.
@@ -145,7 +145,25 @@ Use this list to ensure all tasks are completed properly:
 - [ ] Start partner/referral motion.
 - [ ] Establish monthly planning and reporting cadence.
 
-## 8) KPI Dashboard
+## 8) Work Review and Fix Log (for "check and complete" workflow)
+
+Use this simple table to review work completed by others, identify defects, and track closure:
+
+| Item | Owner | Reviewer | Issue Found | Fix Required | Due Date | Status |
+|---|---|---|---|---|---|---|
+| ICP segment definitions | Strategy lead | Growth lead |  |  |  | Not started |
+| Landing page copy | Marketing | Sales closer |  |  |  | Not started |
+| Calling bot scripts | Conversation designer | Compliance reviewer |  |  |  | Not started |
+| CRM stage automation | Campaign operator | Ops lead |  |  |  | Not started |
+| Weekly KPI report | Campaign operator | Growth lead |  |  |  | Not started |
+
+### Definition of Done for reviewed items
+- Issue reproduced and documented clearly.
+- Fix implemented and validated by reviewer.
+- Dependencies (script, CRM, tracking, or legal/compliance) updated.
+- Status changed to **Done** with completion date.
+
+## 9) KPI Dashboard
 
 ### Top-of-funnel
 - Leads contacted per week
@@ -162,7 +180,7 @@ Use this list to ensure all tasks are completed properly:
 - Average deal value
 - 60-day repeat order rate
 
-## 9) Team Ownership
+## 10) Team Ownership
 
 - **Growth Lead**: Pipeline strategy, experiments, KPI accountability.
 - **Campaign Operator**: List quality, campaign setup, reporting.
@@ -170,7 +188,7 @@ Use this list to ensure all tasks are completed properly:
 - **Sales Closer**: Qualified meeting conversion and deal closing.
 - **Partnership Manager** (part-time initially): Referral and alliance development.
 
-## 10) Immediate Next 14-Day Action Plan
+## 11) Immediate Next 14-Day Action Plan
 
 1. Choose first two target segments (recommended: store owners + apparel factories).
 2. Lock one strong offer per segment.
