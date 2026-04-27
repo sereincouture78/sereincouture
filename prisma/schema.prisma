@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum LuxuryTheme {
+  DARK_LUXE
+  DARK_CONTRAST
+}
+
+model ThemePreference {
+  id             String      @id @default(cuid())
+  userEmail      String      @unique
+  reducedMotion  Boolean     @default(false)
+  preferredTheme LuxuryTheme @default(DARK_LUXE)
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+}
